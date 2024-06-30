@@ -36,7 +36,7 @@ function validateIndustryChangeApplication(jsonObject, validateCallback) {
             (callback) => {
                 if(jsonObject.willWorkInPhysicalJurisdiction == true ) {
                     if(industryList.includes(jsonObject.industry) && electionList.includes(jsonObject.regulatoryElection)){
-                  //  validateCallback(null, true)  
+                
                         validateCallback(null, true);
             
                     } else {
@@ -224,16 +224,6 @@ let nest = {
             res.status(400).json({ error: "Body is missing" });
         }
     },
-    
-    /**
-    {
-  "residentSub":"resident1",
-  "willWorkInPhysicalJurisdiction": true,
-  "industry":"HEALTH",
-  "regulatoryElection":"ESTONIA",
-"regulatoryElectionSub": null
-}
-    */
     addIndustryChangeApplication: (req, res) => {
         let reqData = req.body;
         reqData.token = req.header('Authorization')?.split(' ')[1];
